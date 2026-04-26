@@ -33,7 +33,7 @@ export function ContactForm() {
     setStatus('submitting')
     try {
       const res = await fetch(
-        `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`,
+        `https://formspree.io/f/xwvajebe`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
