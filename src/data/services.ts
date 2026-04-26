@@ -8,6 +8,7 @@ export const services: Service[] = [
     description: 'Driveways, patios & trash cans blasted clean',
     price: 10,
     icon: Droplets,
+    duration: '30–60 min',
   },
   {
     id: 'car-wash',
@@ -15,6 +16,7 @@ export const services: Service[] = [
     description: 'Hand wash, rinse & dry — looking brand new',
     price: 15,
     icon: Car,
+    duration: '~45 min',
   },
   {
     id: 'leaf-blow',
@@ -22,6 +24,7 @@ export const services: Service[] = [
     description: 'Front & backyard cleared of leaves and debris',
     price: 10,
     icon: Wind,
+    duration: '30–45 min',
   },
   {
     id: 'window-wipe',
@@ -29,6 +32,7 @@ export const services: Service[] = [
     description: 'Exterior window cleaning, streak-free shine',
     price: 15,
     icon: Sparkles,
+    duration: '~30 min',
   },
   {
     id: 'other',

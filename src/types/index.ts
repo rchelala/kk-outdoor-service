@@ -6,6 +6,7 @@ export interface Service {
   description: string
   price: number | null
   icon: LucideIcon
+  duration?: string
 }
 
 export type FormStatus = 'idle' | 'submitting' | 'success' | 'error'

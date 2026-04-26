@@ -9,7 +9,7 @@ import { Contact } from './pages/Contact'
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="animated-gradient min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1">
           <Routes>
