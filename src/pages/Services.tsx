@@ -1,4 +1,5 @@
 import { MapPin } from 'lucide-react'
+import { ServiceAreaMap } from '../components/ServiceAreaMap'
 import { ServiceCard } from '../components/ServiceCard'
 import { services } from '../data/services'
 
@@ -41,7 +42,7 @@ export function Services() {
       {/* Service Area */}
       <div className="max-w-2xl mx-auto px-4 pb-14">
         <div
-          className="rounded-2xl border p-5"
+          className="rounded-2xl border p-5 mb-3"
           style={{
             background: 'color-mix(in oklch, white 65%, transparent)',
             backdropFilter: 'blur(16px) saturate(140%)',
@@ -72,6 +73,7 @@ export function Services() {
             </div>
           </div>
         </div>
+        <ServiceAreaMap />
       </div>
     </div>
   )
