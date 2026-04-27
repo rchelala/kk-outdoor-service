@@ -14,7 +14,7 @@ export const services: Service[] = [
     id: 'car-wash',
     name: 'Car Wash',
     description: 'Hand wash, rinse & dry — looking brand new',
-    price: 15,
+    price: 20,
     icon: Car,
     duration: '~45 min',
   },

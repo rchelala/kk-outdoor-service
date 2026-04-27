@@ -36,6 +36,7 @@ export function BookingForm() {
 
   const [form, setForm] = useState<BookingFormData>({ ...EMPTY, service: preSelected })
   const [status, setStatus] = useState<FormStatus>('idle')
+  const [dateError, setDateError] = useState('')
 
   const set = (field: keyof BookingFormData) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -186,15 +187,31 @@ export function BookingForm() {
       </div>
 
       <div className="mb-4">
-        <label htmlFor="date" className={labelClass} style={{ color: 'var(--ink-2)' }}>Preferred Date</label>
+        <label htmlFor="date" className={labelClass} style={{ color: 'var(--ink-2)' }}>
+          Preferred Date <span className="font-normal" style={{ color: 'var(--ink-3)' }}>(Saturdays only)</span>
+        </label>
         <input
           id="date"
           type="date"
           className={inputClass}
           style={inputStyle}
           value={form.date}
-          onChange={set('date')}
+          onChange={e => {
+            const val = e.target.value
+            if (!val) { setForm(f => ({ ...f, date: '' })); setDateError(''); return }
+            const day = new Date(val + 'T00:00:00').getDay()
+            if (day !== 6) {
+              setForm(f => ({ ...f, date: '' }))
+              setDateError('Please pick a Saturday — that\'s the only day we\'re available.')
+            } else {
+              setForm(f => ({ ...f, date: val }))
+              setDateError('')
+            }
+          }}
         />
+        {dateError && (
+          <p className="text-xs mt-1" style={{ color: 'var(--accent)' }}>{dateError}</p>
+        )}
       </div>
 
       <div className="mb-6">
