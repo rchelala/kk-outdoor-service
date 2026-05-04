@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { Shield, Clock } from 'lucide-react'
 import { ServiceCard } from '../components/ServiceCard'
 import { ServiceCarousel } from '../components/ServiceCarousel'
 import { WorkGallery } from '../components/WorkGallery'
@@ -101,59 +100,6 @@ export function Home() {
               </p>
             </div>
 
-            {/* Right: photo placeholder with floating badges */}
-            <div className="relative hidden sm:block">
-              <div
-                className="rounded-[22px] shadow-lg border overflow-hidden"
-                style={{
-                  aspectRatio: '4/5',
-                  background:
-                    'repeating-linear-gradient(135deg, color-mix(in oklch, #1f4d3b 10%, transparent) 0 1px, transparent 1px 14px), linear-gradient(180deg, #d6e4d8, #aec4b3)',
-                  borderColor: 'var(--line)',
-                }}
-              >
-                <span
-                  className="absolute left-3 top-3 text-[11px] px-2 py-1 rounded-md font-mono"
-                  style={{
-                    background: 'rgba(255,255,255,.9)',
-                    color: 'var(--ink-2)',
-                    border: '1px solid var(--line)',
-                  }}
-                >
-                  hero photo · kids power-washing a driveway
-                </span>
-              </div>
-
-              {/* Floating: Satisfaction promise */}
-              <div
-                className="glass-strong absolute -left-4 -bottom-4 rounded-[14px] p-3.5 flex items-center gap-3"
-                style={{ maxWidth: 240 }}
-              >
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'var(--primary-soft)', color: 'var(--primary)' }}
-                >
-                  <Shield size={18} />
-                </div>
-                <div>
-                  <p className="text-[13px] font-bold leading-tight" style={{ color: 'var(--ink)' }}>
-                    Satisfaction promise
-                  </p>
-                  <p className="text-[12px] mt-0.5" style={{ color: 'var(--ink-2)' }}>
-                    Not happy? We re-do it free.
-                  </p>
-                </div>
-              </div>
-
-              {/* Floating: Same-week service */}
-              <div
-                className="glass-strong absolute -right-3 top-5 rounded-full py-2.5 px-3.5 flex items-center gap-2 text-[13px] font-semibold"
-                style={{ color: 'var(--ink)' }}
-              >
-                <Clock size={15} style={{ color: 'var(--primary)' }} />
-                Same-week service
-              </div>
-            </div>
           </div>
         </div>
 
@@ -277,9 +223,6 @@ export function Home() {
           gap: 40px;
           align-items: center;
           padding-bottom: 56px;
-        }
-        @media (min-width: 880px) {
-          .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 56px; }
         }
         .trust-grid {
           display: grid;
