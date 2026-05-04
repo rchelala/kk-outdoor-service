@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Shield, Clock } from 'lucide-react'
 import { ServiceCard } from '../components/ServiceCard'
 import { ServiceCarousel } from '../components/ServiceCarousel'
+import { WorkGallery } from '../components/WorkGallery'
 import { services } from '../data/services'
 
 const PREVIEW_SERVICES = services.filter(s => s.id !== 'other')
@@ -229,6 +230,9 @@ export function Home() {
           </Link>
         </div>
       </section>
+
+      {/* Our Work section */}
+      <WorkGallery />
 
       {/* About section */}
       <section

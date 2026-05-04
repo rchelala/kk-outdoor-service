@@ -1,0 +1,379 @@
+<style>
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .page-mock {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f8fafc;
+  }
+
+  .page-header {
+    background: linear-gradient(-45deg, #0ea5e9, #22c55e, #0284c7, #059669);
+    background-size: 400% 400%;
+    animation: gradientShift 7s ease infinite;
+    padding: 18px 16px 22px;
+    text-align: center;
+    color: white;
+  }
+
+  .page-header h2 { margin: 0 0 4px; font-size: 18px; font-weight: 800; }
+  .page-header p { margin: 0; font-size: 11px; opacity: 0.85; }
+
+  /* OPTION A — Grid cards with price badge */
+  .grid-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .grid-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    padding: 14px 12px;
+    position: relative;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  .grid-card-emoji { font-size: 28px; margin-bottom: 6px; display: block; }
+  .grid-card-name { font-size: 12px; font-weight: 700; color: #1e293b; margin: 0 0 3px; }
+  .grid-card-desc { font-size: 9px; color: #64748b; margin: 0 0 10px; line-height: 1.4; }
+  .price-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #0ea5e9, #22c55e);
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .book-link {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    background: #f0f9ff;
+    color: #0284c7;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 5px;
+    border-radius: 6px;
+    border: 1px solid #bae6fd;
+  }
+  .other-card {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    border-radius: 12px;
+    border: 1.5px dashed #94a3b8;
+    padding: 12px;
+  }
+  .other-card-emoji { font-size: 24px; }
+  .other-card-text { font-size: 11px; color: #475569; font-weight: 600; }
+  .other-card-sub { font-size: 9px; color: #94a3b8; font-weight: 400; }
+
+  /* OPTION B — horizontal list */
+  .list-cards { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+
+  .list-card {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .list-card-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #e0f2fe, #dcfce7);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .list-card-info { flex: 1; }
+  .list-card-name { font-size: 12px; font-weight: 700; color: #1e293b; margin: 0 0 2px; }
+  .list-card-desc { font-size: 9px; color: #64748b; margin: 0; }
+
+  .list-card-right { text-align: right; flex-shrink: 0; }
+  .list-price { font-size: 16px; font-weight: 800; color: #0284c7; display: block; }
+  .list-book { font-size: 9px; color: #22c55e; font-weight: 700; }
+
+  .other-list-card {
+    background: white;
+    border-radius: 10px;
+    border: 1.5px dashed #94a3b8;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* OPTION C — magazine / feature cards */
+  .feature-cards { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+
+  .feature-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  .feature-card-stripe {
+    width: 6px;
+    background: linear-gradient(180deg, #0ea5e9, #22c55e);
+    flex-shrink: 0;
+  }
+
+  .feature-card-body {
+    flex: 1;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .feature-card-emoji { font-size: 26px; flex-shrink: 0; }
+  .feature-card-info { flex: 1; }
+  .feature-card-name { font-size: 12px; font-weight: 700; color: #1e293b; margin: 0 0 2px; }
+  .feature-card-desc { font-size: 9px; color: #64748b; margin: 0; }
+  .feature-card-action { text-align: right; flex-shrink: 0; }
+  .feature-price { font-size: 18px; font-weight: 900; color: #0284c7; display: block; line-height: 1; }
+  .feature-price-label { font-size: 8px; color: #94a3b8; }
+  .feature-book-btn {
+    display: block;
+    margin-top: 6px;
+    background: linear-gradient(135deg, #0ea5e9, #22c55e);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-align: center;
+  }
+</style>
+
+<h2>Service Page Layout</h2>
+<p class="subtitle">Same 5 services, 3 different card styles. Which feels right?</p>
+
+<div class="cards">
+
+  <!-- Option A: Grid -->
+  <div class="card" data-choice="grid" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0">
+      <div class="page-mock">
+        <div class="page-header">
+          <h2>Our Services</h2>
+          <p>Tap any service to book</p>
+        </div>
+        <div class="grid-cards">
+          <div class="grid-card">
+            <span class="grid-card-emoji">🪣</span>
+            <p class="grid-card-name">Power Washing</p>
+            <p class="grid-card-desc">Driveways, patios & trash cans</p>
+            <span class="price-badge">$10</span>
+            <span class="book-link">Book →</span>
+          </div>
+          <div class="grid-card">
+            <span class="grid-card-emoji">🚗</span>
+            <p class="grid-card-name">Car Wash</p>
+            <p class="grid-card-desc">Hand wash, rinse & dry</p>
+            <span class="price-badge">$15</span>
+            <span class="book-link">Book →</span>
+          </div>
+          <div class="grid-card">
+            <span class="grid-card-emoji">🍂</span>
+            <p class="grid-card-name">Leaf Blowing</p>
+            <p class="grid-card-desc">Front & backyard cleanup</p>
+            <span class="price-badge">$10</span>
+            <span class="book-link">Book →</span>
+          </div>
+          <div class="grid-card">
+            <span class="grid-card-emoji">🪟</span>
+            <p class="grid-card-name">Window Wipe</p>
+            <p class="grid-card-desc">Exterior window cleaning</p>
+            <span class="price-badge">$15</span>
+            <span class="book-link">Book →</span>
+          </div>
+          <div class="other-card">
+            <span class="other-card-emoji">✏️</span>
+            <div>
+              <div class="other-card-text">Something Else?</div>
+              <div class="other-card-sub">Tell us what you need — we'll make it happen</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Grid Cards</h3>
+      <p>2-column grid with price badges and individual book buttons. Clean, scannable, menu-like.</p>
+    </div>
+  </div>
+
+  <!-- Option B: List -->
+  <div class="card" data-choice="list" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0">
+      <div class="page-mock">
+        <div class="page-header">
+          <h2>Our Services</h2>
+          <p>Tap any service to book</p>
+        </div>
+        <div class="list-cards">
+          <div class="list-card">
+            <div class="list-card-icon">🪣</div>
+            <div class="list-card-info">
+              <p class="list-card-name">Power Washing</p>
+              <p class="list-card-desc">Driveways, patios & trash cans</p>
+            </div>
+            <div class="list-card-right">
+              <span class="list-price">$10</span>
+              <span class="list-book">Book →</span>
+            </div>
+          </div>
+          <div class="list-card">
+            <div class="list-card-icon">🚗</div>
+            <div class="list-card-info">
+              <p class="list-card-name">Car Wash</p>
+              <p class="list-card-desc">Hand wash, rinse & dry</p>
+            </div>
+            <div class="list-card-right">
+              <span class="list-price">$15</span>
+              <span class="list-book">Book →</span>
+            </div>
+          </div>
+          <div class="list-card">
+            <div class="list-card-icon">🍂</div>
+            <div class="list-card-info">
+              <p class="list-card-name">Leaf Blowing</p>
+              <p class="list-card-desc">Front & backyard cleanup</p>
+            </div>
+            <div class="list-card-right">
+              <span class="list-price">$10</span>
+              <span class="list-book">Book →</span>
+            </div>
+          </div>
+          <div class="list-card">
+            <div class="list-card-icon">🪟</div>
+            <div class="list-card-info">
+              <p class="list-card-name">Window Wipe</p>
+              <p class="list-card-desc">Exterior window cleaning</p>
+            </div>
+            <div class="list-card-right">
+              <span class="list-price">$15</span>
+              <span class="list-book">Book →</span>
+            </div>
+          </div>
+          <div class="other-list-card">
+            <div class="list-card-icon">✏️</div>
+            <div class="list-card-info">
+              <p class="list-card-name">Something Else?</p>
+              <p class="list-card-desc">Tell us what you need</p>
+            </div>
+            <div class="list-card-right">
+              <span class="list-book">Ask →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — List Cards</h3>
+      <p>Horizontal rows, icon left, price right. Very mobile-friendly — easy to scan top to bottom.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Feature stripe -->
+  <div class="card" data-choice="feature" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0">
+      <div class="page-mock">
+        <div class="page-header">
+          <h2>Our Services</h2>
+          <p>Tap any service to book</p>
+        </div>
+        <div class="feature-cards">
+          <div class="feature-card">
+            <div class="feature-card-stripe"></div>
+            <div class="feature-card-body">
+              <span class="feature-card-emoji">🪣</span>
+              <div class="feature-card-info">
+                <p class="feature-card-name">Power Washing</p>
+                <p class="feature-card-desc">Driveways, patios & trash cans</p>
+              </div>
+              <div class="feature-card-action">
+                <span class="feature-price">$10</span>
+                <span class="feature-price-label">per visit</span>
+                <span class="feature-book-btn">Book Now</span>
+              </div>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-stripe"></div>
+            <div class="feature-card-body">
+              <span class="feature-card-emoji">🚗</span>
+              <div class="feature-card-info">
+                <p class="feature-card-name">Car Wash</p>
+                <p class="feature-card-desc">Hand wash, rinse & dry</p>
+              </div>
+              <div class="feature-card-action">
+                <span class="feature-price">$15</span>
+                <span class="feature-price-label">per visit</span>
+                <span class="feature-book-btn">Book Now</span>
+              </div>
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card-stripe"></div>
+            <div class="feature-card-body">
+              <span class="feature-card-emoji">🍂</span>
+              <div class="feature-card-info">
+                <p class="feature-card-name">Leaf Blowing</p>
+                <p class="feature-card-desc">Front & backyard cleanup</p>
+              </div>
+              <div class="feature-card-action">
+                <span class="feature-price">$10</span>
+                <span class="feature-price-label">per visit</span>
+                <span class="feature-book-btn">Book Now</span>
+              </div>
+            </div>
+          </div>
+          <div class="feature-card" style="border: 1.5px dashed #94a3b8; background: transparent;">
+            <div class="feature-card-stripe" style="background: #e2e8f0;"></div>
+            <div class="feature-card-body">
+              <span class="feature-card-emoji">✏️</span>
+              <div class="feature-card-info">
+                <p class="feature-card-name">Something Else?</p>
+                <p class="feature-card-desc">Tell us what you need</p>
+              </div>
+              <div class="feature-card-action">
+                <span class="feature-book-btn" style="background: #64748b;">Ask Us</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Feature Stripe</h3>
+      <p>Gradient accent stripe on each card, big price, inline Book Now button. More premium feel.</p>
+    </div>
+  </div>
+
+</div>

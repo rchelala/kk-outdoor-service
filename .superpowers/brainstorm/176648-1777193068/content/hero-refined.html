@@ -1,0 +1,280 @@
+<style>
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes carouselScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .hero-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(-45deg, #0ea5e9, #22c55e, #0284c7, #059669, #38bdf8);
+    background-size: 400% 400%;
+    animation: gradientShift 7s ease infinite;
+    padding-bottom: 0;
+  }
+
+  /* Glassmorphism nav */
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-size: 12px;
+  }
+
+  .glass-nav strong { font-size: 14px; letter-spacing: -0.3px; }
+  .glass-nav-links { display: flex; gap: 16px; opacity: 0.9; font-weight: 500; }
+
+  /* Hero content */
+  .hero-body {
+    padding: 36px 24px 28px;
+    text-align: center;
+    color: white;
+  }
+
+  /* Glassmorphism badge */
+  .glass-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 24px;
+    padding: 5px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: white;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-title {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.15;
+    margin: 0 0 10px;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+
+  .hero-sub {
+    font-size: 12px;
+    opacity: 0.88;
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+
+  /* Glassmorphism CTA buttons */
+  .glass-btn-primary {
+    display: inline-block;
+    background: white;
+    color: #0284c7;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-size: 12px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    text-decoration: none;
+  }
+
+  .glass-btn-outline {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: white;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    border-radius: 8px;
+    padding: 9px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  /* Glassmorphism stats row */
+  .glass-stats {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0 0;
+    justify-content: center;
+  }
+
+  .glass-stat {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    padding: 8px 14px;
+    text-align: center;
+    color: white;
+  }
+
+  .glass-stat-num { font-size: 16px; font-weight: 800; display: block; }
+  .glass-stat-label { font-size: 9px; opacity: 0.8; font-weight: 500; }
+
+  /* Carousel */
+  .carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+    background: rgba(0,0,0,0.1);
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding: 10px 0;
+    position: relative;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 10px;
+    width: max-content;
+    animation: carouselScroll 14s linear infinite;
+  }
+
+  .carousel-pill {
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 5px 14px;
+    border-radius: 24px;
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* Wave + service cards below */
+  .mock-wave {
+    background: white;
+    height: 28px;
+    clip-path: ellipse(55% 100% at 50% 100%);
+    margin-top: -1px;
+  }
+
+  .service-cards-row {
+    background: white;
+    padding: 14px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .svc-card {
+    flex: 1;
+    background: #f0f9ff;
+    border-radius: 10px;
+    padding: 10px 6px;
+    text-align: center;
+    font-size: 9px;
+    color: #0284c7;
+    font-weight: 700;
+    border: 1px solid #bae6fd;
+  }
+
+  .svc-card span { display: block; font-size: 20px; margin-bottom: 4px; }
+</style>
+
+<h2>Refined Hero — Option A</h2>
+<p class="subtitle">Updated headline · Glassmorphism throughout · Scrolling service carousel</p>
+
+<div class="hero-wrapper">
+  <div class="hero-gradient">
+
+    <!-- Glass nav -->
+    <div class="glass-nav">
+      <strong>🌿 KK Outdoor</strong>
+      <div class="glass-nav-links">
+        <span>Services</span>
+        <span>Book</span>
+        <span>Contact</span>
+      </div>
+    </div>
+
+    <!-- Hero body -->
+    <div class="hero-body">
+      <div class="glass-badge">⭐ Neighborhood Trusted</div>
+      <h1 class="hero-title">Your Neighborhood<br>Cleaning Crew</h1>
+      <p class="hero-sub">Power washing · Car wash · Leaf blowing<br>and more — right on your block</p>
+      <div>
+        <span class="glass-btn-primary">Book a Service</span>
+        <span class="glass-btn-outline">See Services</span>
+      </div>
+
+      <!-- Glass stat pills -->
+      <div class="glass-stats">
+        <div class="glass-stat">
+          <span class="glass-stat-num">50+</span>
+          <span class="glass-stat-label">Homes Served</span>
+        </div>
+        <div class="glass-stat">
+          <span class="glass-stat-num">5★</span>
+          <span class="glass-stat-label">Avg Rating</span>
+        </div>
+        <div class="glass-stat">
+          <span class="glass-stat-num">Same Day</span>
+          <span class="glass-stat-label">Available</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrolling service badge carousel -->
+    <div class="carousel-wrapper">
+      <div class="carousel-track">
+        <!-- First set -->
+        <div class="carousel-pill">🪣 Power Washing</div>
+        <div class="carousel-pill">🚗 Car Wash</div>
+        <div class="carousel-pill">🍂 Leaf Blowing</div>
+        <div class="carousel-pill">🗑️ Trash Can Cleaning</div>
+        <div class="carousel-pill">🌿 Yard Cleanup</div>
+        <div class="carousel-pill">💧 Driveway Rinse</div>
+        <div class="carousel-pill">🧹 Patio Sweep</div>
+        <div class="carousel-pill">✨ Window Wipe</div>
+        <!-- Duplicate for seamless loop -->
+        <div class="carousel-pill">🪣 Power Washing</div>
+        <div class="carousel-pill">🚗 Car Wash</div>
+        <div class="carousel-pill">🍂 Leaf Blowing</div>
+        <div class="carousel-pill">🗑️ Trash Can Cleaning</div>
+        <div class="carousel-pill">🌿 Yard Cleanup</div>
+        <div class="carousel-pill">💧 Driveway Rinse</div>
+        <div class="carousel-pill">🧹 Patio Sweep</div>
+        <div class="carousel-pill">✨ Window Wipe</div>
+      </div>
+    </div>
+
+    <!-- Wave transition -->
+    <div class="mock-wave"></div>
+  </div>
+
+  <!-- Service cards below fold -->
+  <div class="service-cards-row">
+    <div class="svc-card"><span>🪣</span>Power Wash</div>
+    <div class="svc-card"><span>🚗</span>Car Wash</div>
+    <div class="svc-card"><span>🍂</span>Leaf Blow</div>
+    <div class="svc-card"><span>🗑️</span>Trash Cans</div>
+  </div>
+</div>

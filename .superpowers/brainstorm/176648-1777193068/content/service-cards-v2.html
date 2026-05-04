@@ -1,0 +1,216 @@
+<style>
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .page-mock {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f8fafc;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    background: linear-gradient(-45deg, #0ea5e9, #22c55e, #0284c7, #059669);
+    background-size: 400% 400%;
+    animation: gradientShift 7s ease infinite;
+    padding: 20px 16px 24px;
+    text-align: center;
+    color: white;
+  }
+
+  .page-header h2 { margin: 0 0 4px; font-size: 20px; font-weight: 800; letter-spacing: -0.3px; }
+  .page-header p { margin: 0; font-size: 11px; opacity: 0.85; }
+
+  .grid-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .grid-card {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    padding: 16px 14px 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: box-shadow 0.2s;
+  }
+
+  .icon-wrap {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #e0f2fe, #dcfce7);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .icon-wrap svg {
+    width: 22px;
+    height: 22px;
+    stroke: #0284c7;
+    stroke-width: 1.75;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .grid-card-name { font-size: 12px; font-weight: 700; color: #1e293b; margin: 0 0 3px; }
+  .grid-card-desc { font-size: 9px; color: #64748b; margin: 0 0 12px; line-height: 1.4; }
+
+  .price-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #0ea5e9, #22c55e);
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .book-link {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    background: #f0f9ff;
+    color: #0284c7;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #bae6fd;
+  }
+
+  .other-card {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: white;
+    border-radius: 14px;
+    border: 1.5px dashed #94a3b8;
+    padding: 14px;
+  }
+
+  .other-card .icon-wrap {
+    background: #f1f5f9;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .other-card .icon-wrap svg { stroke: #64748b; }
+  .other-card-text { font-size: 12px; color: #475569; font-weight: 700; margin: 0 0 2px; }
+  .other-card-sub { font-size: 9px; color: #94a3b8; margin: 0; }
+  .other-ask {
+    margin-left: auto;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    flex-shrink: 0;
+  }
+</style>
+
+<h2>Service Cards — Option A Refined</h2>
+<p class="subtitle">Grid layout with proper Lucide icons, gradient price badges, Book buttons</p>
+
+<div class="page-mock">
+  <div class="page-header">
+    <h2>Our Services</h2>
+    <p>Tap any service to book</p>
+  </div>
+
+  <div class="grid-cards">
+
+    <!-- Power Washing — Droplets icon -->
+    <div class="grid-card">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24">
+          <path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 13.09 3 14.25c0 2.22 1.8 4.05 4 4.05z"/>
+          <path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/>
+        </svg>
+      </div>
+      <p class="grid-card-name">Power Washing</p>
+      <p class="grid-card-desc">Driveways, patios &amp; trash cans</p>
+      <span class="price-badge">$10</span>
+      <span class="book-link">Book Now →</span>
+    </div>
+
+    <!-- Car Wash — Car icon -->
+    <div class="grid-card">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24">
+          <path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2"/>
+          <circle cx="7" cy="17" r="2"/>
+          <circle cx="17" cy="17" r="2"/>
+          <path d="M3 9h18"/>
+          <path d="M8 3v6"/>
+        </svg>
+      </div>
+      <p class="grid-card-name">Car Wash</p>
+      <p class="grid-card-desc">Hand wash, rinse &amp; dry</p>
+      <span class="price-badge">$15</span>
+      <span class="book-link">Book Now →</span>
+    </div>
+
+    <!-- Leaf Blowing — Wind icon -->
+    <div class="grid-card">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24">
+          <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/>
+          <path d="M9.6 4.6A2 2 0 1 1 11 8H2"/>
+          <path d="M12.6 19.4A2 2 0 1 0 14 16H2"/>
+        </svg>
+      </div>
+      <p class="grid-card-name">Leaf Blowing</p>
+      <p class="grid-card-desc">Front &amp; backyard cleanup</p>
+      <span class="price-badge">$10</span>
+      <span class="book-link">Book Now →</span>
+    </div>
+
+    <!-- Window Wipe — Sparkles icon -->
+    <div class="grid-card">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24">
+          <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+          <path d="M5 3v4"/>
+          <path d="M19 17v4"/>
+          <path d="M3 5h4"/>
+          <path d="M17 19h4"/>
+        </svg>
+      </div>
+      <p class="grid-card-name">Window Wipe</p>
+      <p class="grid-card-desc">Exterior window cleaning</p>
+      <span class="price-badge">$15</span>
+      <span class="book-link">Book Now →</span>
+    </div>
+
+    <!-- Other — PenLine icon -->
+    <div class="other-card">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 20h9"/>
+          <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+        </svg>
+      </div>
+      <div>
+        <p class="other-card-text">Something Else?</p>
+        <p class="other-card-sub">Tell us what you need — we'll make it happen</p>
+      </div>
+      <span class="other-ask">Ask Us →</span>
+    </div>
+
+  </div>
+</div>

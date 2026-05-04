@@ -1,0 +1,269 @@
+<style>
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animated-gradient {
+    background: linear-gradient(-45deg, #0ea5e9, #22c55e, #0284c7, #16a34a);
+    background-size: 400% 400%;
+    animation: gradientShift 6s ease infinite;
+  }
+
+  .hero-mock {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #e2e8f0;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+  }
+
+  .mock-nav-bar {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .mock-nav-links { display: flex; gap: 12px; opacity: 0.9; }
+
+  .hero-content-center {
+    padding: 32px 16px;
+    text-align: center;
+    color: white;
+  }
+
+  .hero-content-left {
+    padding: 28px 16px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 10px;
+    margin-bottom: 8px;
+    color: white;
+  }
+
+  .hero-title {
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 8px;
+  }
+
+  .hero-sub {
+    font-size: 11px;
+    opacity: 0.85;
+    margin: 0 0 14px;
+    line-height: 1.4;
+  }
+
+  .hero-btn {
+    background: white;
+    color: #0284c7;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-size: 11px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .hero-btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 6px;
+    padding: 7px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    display: inline-block;
+    margin-left: 8px;
+  }
+
+  .service-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 14px;
+  }
+
+  .service-pill {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 9px;
+  }
+
+  .mock-icon-art {
+    width: 80px;
+    height: 80px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    flex-shrink: 0;
+  }
+
+  .mock-wave {
+    background: white;
+    height: 24px;
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .mock-cards-row {
+    background: white;
+    padding: 12px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .mock-service-card {
+    flex: 1;
+    background: #f0f9ff;
+    border-radius: 8px;
+    padding: 10px 8px;
+    text-align: center;
+    font-size: 9px;
+    color: #0284c7;
+    font-weight: 600;
+    border: 1px solid #bae6fd;
+  }
+
+  .mock-service-card span { display: block; font-size: 18px; margin-bottom: 4px; }
+</style>
+
+<h2>Homepage Hero Layout</h2>
+<p class="subtitle">All three use the animated blue-green gradient. Which layout structure feels right?</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="centered-bold" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 0;">
+      <div class="hero-mock">
+        <div class="animated-gradient">
+          <div class="mock-nav-bar">
+            <strong>🌿 KK Outdoor</strong>
+            <div class="mock-nav-links"><span>Services</span><span>Book</span><span>Contact</span></div>
+          </div>
+          <div class="hero-content-center">
+            <div class="hero-badge">⭐ Neighborhood Trusted</div>
+            <h1 class="hero-title">Your Yard, Cleaned<br>by Kids Who Care</h1>
+            <p class="hero-sub">Power washing · Car wash · Leaf blowing<br>and more — right in your neighborhood</p>
+            <div>
+              <span class="hero-btn">Book a Service</span>
+              <span class="hero-btn-outline">See Services</span>
+            </div>
+            <div class="service-pills">
+              <span class="service-pill">🪣 Power Wash</span>
+              <span class="service-pill">🚗 Car Wash</span>
+              <span class="service-pill">🍂 Leaf Blowing</span>
+              <span class="service-pill">🗑️ Trash Cans</span>
+            </div>
+          </div>
+          <div class="mock-wave"></div>
+        </div>
+        <div class="mock-cards-row">
+          <div class="mock-service-card"><span>🪣</span>Power Wash</div>
+          <div class="mock-service-card"><span>🚗</span>Car Wash</div>
+          <div class="mock-service-card"><span>🍂</span>Leaf Blow</div>
+          <div class="mock-service-card"><span>🗑️</span>Trash Cans</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Centered &amp; Bold</h3>
+      <p>Full-width gradient hero, centered text, service pills, wave transition into service cards below. Clean and impactful.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="split-hero" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 0;">
+      <div class="hero-mock">
+        <div class="animated-gradient">
+          <div class="mock-nav-bar">
+            <strong>🌿 KK Outdoor</strong>
+            <div class="mock-nav-links"><span>Services</span><span>Book</span></div>
+          </div>
+          <div class="hero-content-left">
+            <div style="flex:1;">
+              <div class="hero-badge">Kid-run · Local · Reliable</div>
+              <h1 class="hero-title" style="font-size:17px;">Outdoor Cleaning<br>Done Right</h1>
+              <p class="hero-sub">We power wash, wash cars, blow leaves &amp; more — right in your neighborhood.</p>
+              <span class="hero-btn">Book Now →</span>
+            </div>
+            <div class="mock-icon-art">🧹</div>
+          </div>
+        </div>
+        <div style="background:white; padding:10px 12px;">
+          <div style="font-size:9px; color:#64748b; margin-bottom:6px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;">Our Services</div>
+          <div class="mock-cards-row" style="padding:0; gap:6px;">
+            <div class="mock-service-card"><span>🪣</span>Power Wash</div>
+            <div class="mock-service-card"><span>🚗</span>Car Wash</div>
+            <div class="mock-service-card"><span>🍂</span>Leaves</div>
+            <div class="mock-service-card"><span>🗑️</span>Trash Cans</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Split Hero</h3>
+      <p>Text left, emoji icon art right. Feels more conversational and approachable. Works great on mobile.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="minimal-cta" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 0;">
+      <div class="hero-mock">
+        <div class="animated-gradient" style="padding-bottom: 0;">
+          <div class="mock-nav-bar">
+            <strong>🌿 KK Outdoor Services</strong>
+            <span class="hero-btn" style="padding: 5px 12px; font-size:10px;">Book Now</span>
+          </div>
+          <div class="hero-content-center" style="padding-bottom: 20px;">
+            <h1 class="hero-title" style="font-size: 22px;">Your Neighborhood<br>Cleaning Crew 🧹</h1>
+            <p class="hero-sub">Scan your card · Pick a service · We show up</p>
+            <span class="hero-btn" style="font-size:13px; padding: 10px 24px;">Book a Service</span>
+          </div>
+        </div>
+        <div style="background:#f8fafc; padding:14px; display:flex; flex-direction:column; gap:6px;">
+          <div style="display:flex; align-items:center; gap:10px; background:white; border-radius:8px; padding:8px 10px; border:1px solid #e2e8f0; font-size:10px; color:#334155;">
+            <span style="font-size:18px;">🪣</span> <div><strong>Power Washing</strong><br><span style="color:#64748b;">Driveways, patios, trash cans</span></div>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; background:white; border-radius:8px; padding:8px 10px; border:1px solid #e2e8f0; font-size:10px; color:#334155;">
+            <span style="font-size:18px;">🚗</span> <div><strong>Car Wash</strong><br><span style="color:#64748b;">Hand wash, rinse &amp; dry</span></div>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; background:white; border-radius:8px; padding:8px 10px; border:1px solid #e2e8f0; font-size:10px; color:#334155;">
+            <span style="font-size:18px;">🍂</span> <div><strong>Leaf Blowing</strong><br><span style="color:#64748b;">Front &amp; backyard cleanup</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Minimal + List</h3>
+      <p>Compact gradient hero, big CTA button, then a clean service list below. Feels fast and easy to scan — perfect for mobile visits from business cards.</p>
+    </div>
+  </div>
+
+</div>

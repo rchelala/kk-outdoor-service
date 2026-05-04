@@ -1,0 +1,359 @@
+<style>
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .page-mock {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f8fafc;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    background: linear-gradient(-45deg, #0ea5e9, #22c55e, #0284c7, #059669);
+    background-size: 400% 400%;
+    animation: gradientShift 7s ease infinite;
+    padding: 18px 16px 20px;
+    text-align: center;
+    color: white;
+  }
+  .page-header h2 { margin: 0 0 3px; font-size: 17px; font-weight: 800; }
+  .page-header p { margin: 0; font-size: 10px; opacity: 0.85; }
+
+  .form-body { padding: 14px; }
+
+  /* Shared field styles */
+  .field { margin-bottom: 10px; }
+  .field label { display: block; font-size: 9px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+
+  .mock-input {
+    width: 100%;
+    background: white;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 11px;
+    color: #94a3b8;
+    box-sizing: border-box;
+  }
+
+  .mock-input.focus { border-color: #0ea5e9; box-shadow: 0 0 0 3px rgba(14,165,233,0.12); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+  /* Service chips */
+  .service-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 9px;
+    font-weight: 600;
+    border: 1.5px solid #e2e8f0;
+    background: white;
+    color: #475569;
+    cursor: pointer;
+  }
+  .chip svg { width: 11px; height: 11px; stroke: #64748b; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .chip.selected {
+    background: linear-gradient(135deg, #e0f2fe, #dcfce7);
+    border-color: #0ea5e9;
+    color: #0284c7;
+  }
+  .chip.selected svg { stroke: #0284c7; }
+
+  /* Submit button */
+  .submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #0ea5e9, #22c55e);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 11px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    margin-top: 4px;
+    box-shadow: 0 4px 12px rgba(14,165,233,0.3);
+  }
+
+  /* Option B: Card-style steps */
+  .steps { padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+
+  .step-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .step-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0ea5e9, #22c55e);
+    color: white;
+    font-size: 10px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .step-title { font-size: 11px; font-weight: 700; color: #1e293b; }
+  .step-body { padding: 10px 12px; }
+
+  /* Option C: Glass card form */
+  .glass-form-body {
+    background: linear-gradient(-45deg, #0ea5e9, #22c55e, #0284c7, #059669);
+    background-size: 400% 400%;
+    animation: gradientShift 7s ease infinite;
+    padding: 14px;
+  }
+
+  .glass-card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 16px;
+    padding: 16px;
+  }
+
+  .glass-label { display: block; font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+
+  .glass-input {
+    width: 100%;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 11px;
+    color: white;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+
+  .glass-input::placeholder { color: rgba(255,255,255,0.5); }
+
+  .glass-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 9px;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.12);
+    color: white;
+    margin: 0 4px 4px 0;
+  }
+
+  .glass-chip.selected {
+    background: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.6);
+  }
+
+  .glass-submit {
+    width: 100%;
+    background: white;
+    color: #0284c7;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 11px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    margin-top: 4px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+</style>
+
+<h2>Booking Form Layout</h2>
+<p class="subtitle">All forms collect the same info — name, contact, service, date, address, notes</p>
+
+<div class="cards">
+
+  <!-- Option A: Clean flat form -->
+  <div class="card" data-choice="flat" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0">
+      <div class="page-mock">
+        <div class="page-header">
+          <h2>Book a Service</h2>
+          <p>We'll confirm within 24 hours</p>
+        </div>
+        <div class="form-body">
+          <div class="two-col">
+            <div class="field">
+              <label>First Name</label>
+              <div class="mock-input focus">John</div>
+            </div>
+            <div class="field">
+              <label>Last Name</label>
+              <div class="mock-input">Smith</div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Email or Phone</label>
+            <div class="mock-input">john@email.com</div>
+          </div>
+          <div class="field">
+            <label>Address</label>
+            <div class="mock-input">123 Maple Street</div>
+          </div>
+          <div class="field">
+            <label>Service</label>
+            <div class="service-chips">
+              <div class="chip selected">
+                <svg viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 13.09 3 14.25c0 2.22 1.8 4.05 4 4.05z"/></svg>
+                Power Wash
+              </div>
+              <div class="chip">
+                <svg viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>
+                Leaf Blow
+              </div>
+              <div class="chip">Car Wash</div>
+              <div class="chip">Window Wipe</div>
+              <div class="chip">Other</div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Preferred Date</label>
+            <div class="mock-input">Pick a date...</div>
+          </div>
+          <div class="field">
+            <label>Notes</label>
+            <div class="mock-input" style="height:40px; padding-top:8px;">Any special instructions...</div>
+          </div>
+          <div class="submit-btn">Send Booking Request</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Clean Form</h3>
+      <p>White card fields, service chips to tap, all fields on one page. Simple and fast.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Stepped card form -->
+  <div class="card" data-choice="stepped" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0">
+      <div class="page-mock">
+        <div class="page-header">
+          <h2>Book a Service</h2>
+          <p>3 quick steps</p>
+        </div>
+        <div class="steps">
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">1</div>
+              <span class="step-title">Choose Your Service</span>
+            </div>
+            <div class="step-body">
+              <div class="service-chips">
+                <div class="chip selected">Power Wash — $10</div>
+                <div class="chip">Car Wash — $15</div>
+                <div class="chip">Leaf Blow — $10</div>
+                <div class="chip">Window Wipe — $15</div>
+                <div class="chip">Other</div>
+              </div>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">2</div>
+              <span class="step-title">Your Info</span>
+            </div>
+            <div class="step-body">
+              <div class="two-col">
+                <div class="mock-input">Name</div>
+                <div class="mock-input">Phone</div>
+              </div>
+              <div class="mock-input" style="margin-top:6px;">Address</div>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">3</div>
+              <span class="step-title">Pick a Date &amp; Notes</span>
+            </div>
+            <div class="step-body">
+              <div class="mock-input" style="margin-bottom:6px;">Preferred date...</div>
+              <div class="mock-input" style="height:36px;">Any notes...</div>
+            </div>
+          </div>
+          <div class="submit-btn">Send Booking Request</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Step Cards</h3>
+      <p>Visually grouped into 3 steps. Feels less overwhelming, clear progress.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Glassmorphism form -->
+  <div class="card" data-choice="glass" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0">
+      <div class="page-mock" style="background: none;">
+        <div class="glass-form-body">
+          <div style="text-align:center; color:white; padding: 10px 0 14px;">
+            <div style="font-size:17px; font-weight:800; letter-spacing:-0.3px;">Book a Service</div>
+            <div style="font-size:10px; opacity:0.8; margin-top:2px;">We'll confirm within 24 hours</div>
+          </div>
+          <div class="glass-card">
+            <div class="two-col">
+              <div>
+                <label class="glass-label">Name</label>
+                <input class="glass-input" placeholder="Your name" style="margin-bottom:8px;" />
+              </div>
+              <div>
+                <label class="glass-label">Phone</label>
+                <input class="glass-input" placeholder="555-0100" style="margin-bottom:8px;" />
+              </div>
+            </div>
+            <label class="glass-label">Address</label>
+            <input class="glass-input" placeholder="123 Maple St" />
+            <label class="glass-label">Service</label>
+            <div style="margin-bottom:10px;">
+              <span class="glass-chip selected">Power Wash $10</span>
+              <span class="glass-chip">Car Wash $15</span>
+              <span class="glass-chip">Leaf Blow $10</span>
+              <span class="glass-chip">Window $15</span>
+              <span class="glass-chip">Other</span>
+            </div>
+            <label class="glass-label">Date</label>
+            <input class="glass-input" placeholder="Preferred date..." />
+            <label class="glass-label">Notes</label>
+            <input class="glass-input" placeholder="Any special instructions..." />
+            <div class="glass-submit">Send Booking Request</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Glassmorphism Form</h3>
+      <p>Animated gradient background continues into the form page. Frosted glass card, white fields. Matches the hero's energy throughout the whole site.</p>
+    </div>
+  </div>
+
+</div>
